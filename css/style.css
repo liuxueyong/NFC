@@ -10,7 +10,7 @@ body footer{
 	padding-right:15px;
 	padding-left:15px;
 	margin-right:auto;
-	margin-left:auto
+	margin-left:auto;
 }
 @media (min-width:576px){
 	.container{max-width:540px}
@@ -48,7 +48,7 @@ input[type="text"] {
     padding: 10px; /* 调整输入框内边距 */
     border: 1px solid #ccc; /* 修改输入框边框样式 */
     border-radius: 5px; /* 圆角边框 */
-    width: 90%; /* 调整输入框宽度 */
+    width: 95%; /* 调整输入框宽度 */
 }
 
 button {
