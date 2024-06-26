@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* 基础容器布局 */
+body footer{
+	margin-top: 80px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.container{
+	width:100%;
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto
+}
+@media (min-width:576px){
+	.container{max-width:540px}
+}
+@media (min-width:768px){
+	.container{max-width:720px}
+}
+@media (min-width:992px){
+	.container{max-width:960px}
+}
+@media (min-width:1200px){
+	.container{max-width:1140px}
+}
+.container-fluid{
+	width:100%;
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto
+}
+
+h1{
+	margin-top: 80px;
+	margin-bottom: 50px;
+	user-select:none;
+}
+p{
+	margin-top:10px;
+	margin-bottom:5px;
+	user-select:none;
+}
+
+input[type="text"] {
+    font-size: 24px; /* 调整输入框字体大小 */
+    padding: 10px; /* 调整输入框内边距 */
+    border: 1px solid #ccc; /* 修改输入框边框样式 */
+    border-radius: 5px; /* 圆角边框 */
+    width: 90%; /* 调整输入框宽度 */
+}
+
+button {
+    font-size: 24px; /* 调整按钮字体大小 */
+    padding: 4px 10px; /* 调整按钮内边距 */
+    background-color: #f8f8f8; /* 修改按钮背景颜色 */
+    border: 1px solid #ccc; /* 修改按钮边框样式 */
+    border-radius: 5px; /* 圆角边框 */
+    cursor: pointer;
+	user-select:none;
+	transform: background 0.5s;
+    -moz-transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
+}
+button:hover {
+    border: 1px solid #000; /* 修改按钮边框样式 */
+}
+button:active {
+    border: 1px solid #00BDFF; /* 修改按钮背景颜色 */
+}
+.button{
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.label{
+	margin-bottom: 10px;
+	user-select:none;
+}
+
+footer{
+	position: absolute;
+	bottom: 20px;
+	font-size: 15px;
+	color: #dadada;
+}
+
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+    display: none;
+    animation: fadeOut 2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.options > * {
+    margin-right: 20px;
+}
+
+#text-input {
+    align-self: flex-start;
+}
+.generated-link {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 1s;
+}
+.generated-link.show {
+    display: block;
+}
+.copy-button {
+    margin-top: 10px;
+}
