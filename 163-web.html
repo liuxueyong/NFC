@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ALIX</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('click', function(event) {
+        if (event.target.id !== 'inputBox' && event.target.id !== 'outputBox') {
+          matchUrl();
+        }
+      });
+    });
+
+    function matchUrl() {
+      let text = document.getElementById("inputBox").value;
+      let regex = /https?:\/\/[^\s]+/g;
+      let match = text.match(regex);
+      if (match && match.length > 0) {
+        let url = "orpheus://openurl?url=" + match[0];
+        document.getElementById("outputBox").value = url;
+        document.querySelector('.container').style.marginTop = '20px';
+        document.getElementById('generated-link').classList.add('show');
+        document.getElementById('success-message').innerHTML = "链接已自动复制，可直接写入";
+        document.getElementById('success-message').style.display = 'block';
+        copyOutput(url);
+
+        // 自动隐藏成功提示
+        setTimeout(function() {
+          document.getElementById('success-message').style.display = 'none';
+        }, 3000);
+      } else {
+        alert("未找到合法的链接！");
+      }
+    }
+
+    function copyOutput(outputLink) {
+      var tempInput = document.createElement('input');
+      tempInput.value = outputLink;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
+
+    function clearInput() {
+      document.getElementById('inputBox').value = '';
+      document.getElementById('outputBox').value = '';
+      document.querySelector('.container').style.marginTop = '80px';
+      document.getElementById('generated-link').classList.remove('show');
+      document.getElementById('success-message').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>网易云音乐 网页版</h1>
+	启用编码 <input type="checkbox" id="encodeCheckbox">
+	<p>输入分享文本</p>
+	<input type="text" id="inputBox" style="margin-bottom: 20px;" placeholder="✎   分享Taylor Swift的单曲《Welcome To New York (Taylor's Version)》:http://...">
+    <button onclick="clearInput()">清空</button>
+
+
+
+    <!-- 输出 -->
+    <div id="generated-link" class="generated-link">
+        <p>输出的链接为：</p>
+          <input type="text" id="outputBox" readonly>
+          <button class="copy-button" onclick="copyOutput(document.getElementById('outputBox').value)">复制</button>
+        <p id="success-message" class="success-message" style="display: none;"></p>
+    </div>
+
+	
+<footer>
+		<p><img src="pic/svg/X.svg" alt="SVG Image" width="12" height="12">  By.Alix &nbsp;·&nbsp; 11 Mall Studio &nbsp;|&nbsp; 拾一猫工作室</p>
+</footer>
+	
+</body>
+</html>
