@@ -53,6 +53,30 @@
 		padding: 1.5px 10px 1.5px 10px;
 		margin-left: 11px;
 	}
+
+	/*  ANIMATION  * 页面动效 */
+@keyframes f-up {
+  0% {
+  will-change: transform;                   /* 优化动画1 */
+  /*position:relative;                         优化动画2 */
+  /*z-index: 1;                                优化动画3 */
+  opacity: 0;                       /* 初始状态 透明度为0 */
+  transform:translateY(100px);  /* 初始状态 文档流下100px */
+  }
+  100% {
+  opacity: 1;                       /* 结尾状态 透明度为1 */
+  transform:translateY(0px);      /* 初始状态 恢复正常位置 */
+  }
+}
+
+@media (max-width: 576px) {
+  .f-up{
+     animation-name: f-up;                  /* 动画名称 */
+     animation-duration: 0.8s;           /* 动画持续时间 */
+     animation-iteration-count: 1;          /* 动画次数 */
+     animation-delay: 0s;                   /* 延迟时间 */
+}
+}
 	</style>
 </head>
 <body>
@@ -111,6 +135,46 @@
 <footer style="position: absolute; bottom: 0px;">
 	<p><img src="pic/svg/X.svg" alt="SVG Image" width="10" height="10">&nbsp;  By.Alix &nbsp;·&nbsp; 11 Mall Studio &nbsp;|&nbsp; 拾一猫工作室</p>
 </footer>
-	
+  <!-- 内容块过渡动效 -->
+  <script>
+        // 获取浏览器可见区域高度
+  var window_height= document.documentElement.clientHeight;
+        // 用户手动修改浏览器可见区域高度时修改变量
+  window.onresize=function () {window_height=document.documentElement.clientHeight;};
+        // 获取所需效果元素
+  var My_vanwee=document.getElementsByClassName('titlebox');
+        // 鼠标滚轮滚动执行方法
+  window.onscroll = function(){
+        // 获取鼠标滚轮滚动距离
+  var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            // 循环类vanwee
+            for (var k=0;k<My_vanwee.length;k++){
+                if (My_vanwee[k].classList.contains("f-up")==false && _scrollTop >= getOffsetTop(My_vanwee[k]) - window_height && _scrollTop<= getOffsetTop(My_vanwee[k])){
+                    My_vanwee[k].classList.add("f-up");
+                }
+            }
+  };
+        // 判断元素父集是否有已定位元素
+        function getOffsetTop(ele) {
+            var rtn = ele.offsetTop;
+            var o = ele.offsetParent;
+            while(o!=null) {
+                    rtn += o.offsetTop;
+                    o = o.offsetParent;
+            }
+            return rtn;
+        }
+        // 滚动条等于0时执行第一屏效果
+        function my_animation() {
+            var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            // 效果方式
+            for (var k=0;k<My_vanwee.length;k++) {
+                if (My_vanwee[k].classList.contains("f-up")==false && _scrollTop>= getOffsetTop(My_vanwee[k]) - window_height && _scrollTop<= getOffsetTop(My_vanwee[k])){
+                    My_vanwee[k].classList.add("f-up");
+                }
+            }
+        }
+     my_animation();
+  </script>
 </body>
 </html>
