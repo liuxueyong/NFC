@@ -31,7 +31,7 @@ body footer{
 	.container{max-width:1140px}
 }
 .input-container{
-	margin-right: 21.6px;
+	margin-right: 21.6px; /* 输入框元素溢出修复 */
 }
 
 h1{
@@ -134,6 +134,7 @@ footer{
 }
 .generated-link.show {
     display: block;
+	margin-right: 21.6px;  /* 输出框元素溢出修复 */
 }
 .copy-button {
     margin-top: 10px;

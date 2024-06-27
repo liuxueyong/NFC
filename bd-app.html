@@ -55,7 +55,7 @@
     function clearInput() {
       document.getElementById('inputBox').value = '';
       document.getElementById('outputBox').value = '';
-      document.querySelector('.container').style.marginTop = '200px';
+      document.querySelector('.container').style.marginTop = '80px';
       document.getElementById('generated-link').classList.remove('show');
       document.getElementById('success-message').style.display = 'none';
     }
@@ -76,7 +76,7 @@
     <h1>波点音乐 APP ID</h1>
     
 
-    <!-- 步骤A -->
+    <!-- 输入 -->
     <div class="input-container">
 		<p>输入分享文本</p>
 	  <input type="text" id="inputBox" placeholder="✎   输入整段分享的链接">
@@ -84,7 +84,7 @@
     </div>
 	  
 
-    <!-- 步骤B/C -->
+    <!-- 输出 -->
     <div id="generated-link" class="generated-link">
         <p>生成的链接为：</p>
         <input type="text" id="outputBox" readonly>
