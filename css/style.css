@@ -30,7 +30,9 @@ body footer{
 @media (min-width:1200px){
 	.container{max-width:1140px}
 }
-
+.box-size{
+	margin-right: 21.6px;
+}
 
 h1{
 	margin-top: 80px;
