@@ -1,4 +1,13 @@
 @charset "utf-8";
+/* 全局字体设置 */
+@font-face {
+  font-family: MiLan;
+  src:url("../font/MI_LanTing_Regular.ttf")
+}
+body{
+  font-family: MiLan;
+  src:url("../font/MI_LanTing_Regular.ttf")
+}
 /* 基础容器布局 */
 body footer{
 	margin-top: 80px;
