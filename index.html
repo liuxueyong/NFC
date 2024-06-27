@@ -8,98 +8,20 @@
 </head>
 <body>
   <div class="container">
-    <h1>QQ音乐 APP ID</h1>
-    
-	<!-- 编码复选框 -->
-    <div>
-      <form id="encodeForm">
-        <label for="encodeCheckbox" class="label">启用编码</label>
-        <input type="checkbox" id="encodeCheckbox" name="encodeCheckbox" onchange="generateUrl()">
-      </form>
-    </div>
-
-    <!-- 步骤A -->
-    <div class="input-container">
-		<p>输入分享文本</p>
-      <label for="stepA" class="label"></label>
-      <input type="text" id="stepA" name="stepA" class="input-box" oninput="processUrl()" placeholder="✎   G.E.M. 邓紫棋《光年之外》https://...">
-    </div>
-
-
-
-    <!-- 步骤B/C -->
-    <div class="input-container">
-		<p>最终处理完的代码</p>
-      <label for="stepB" class="label"></label>
-      <input type="text" id="stepB" name="stepB" class="input-box" oninput="generateUrl()" placeholder="⚙︎   自动完成复制">
-    </div>
-
-    <!-- 清除按钮 -->
-    <div class="input-container button">
-      <button onclick="clearInputs()">全部清除</button>
-    </div>
-  </div>
-
-  <script>
-    // 步骤A：正则匹配用户文本中的手机网址
-    function processUrl() {
-      let text = document.getElementById("stepA").value;
-      let regex = /https?:\/\/[^\s]+/g;
-      let match = text.match(regex);
-      if (match && match.length > 0) {
-        let url = match[0];
-        getSongmidFromAPI(url);
-      }
-    }
-
-    // 从API获取songmid参数
-    function getSongmidFromAPI(url) {
-      let apiUrl = 'https://api.pearktrue.cn/api/short/hy.php?url=' + encodeURIComponent(url);
-
-      fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          if (data.code === 200) {
-            let songmid = data.data.destination.match(/songmid=([0-9a-zA-Z]+)/)[1];
-            generateFinalUrl(songmid);
-          } else {
-            alert("无法获取songmid参数，请检查API返回数据");
-          }
-        })
-        .catch(error => {
-          alert("请求API失败：" + error);
-        });
-    }
-
-    // 生成最终的启动链接并自动复制
-    function generateFinalUrl(songmid) {
-      let finalParam = '{"song":[{"type":"0","songmid":"' + songmid + '"}],"action":"play"}';
-
-      // 判断复选框状态来决定是否对参数进行编码
-      let encodeCheckbox = document.getElementById("encodeCheckbox");
-      let finalUrl;
-      if (encodeCheckbox.checked) {
-        finalUrl = "qqmusic://qq.com/media/playSonglist?p=" + encodeURIComponent(finalParam);
-      } else {
-        finalUrl = "qqmusic://qq.com/media/playSonglist?p=" + finalParam;
-      }
-
-      document.getElementById("stepB").value = finalUrl;
-      document.getElementById("stepB").select();
-      document.execCommand("copy");
-      alert("已生成最终代码并复制到剪贴板！快去写入吧");
-    }
-
-    // 清除按钮：清空所有输入框的内容
-    function clearInputs() {
-      document.getElementById("stepA").value = "";
-      document.getElementById("stepB").value = "";
-    }
-  </script>
+    <h1 style="line-height: 1.5">拾一猫工作室<br>音乐分享链接转码工具</h1>
+      <p style="line-height: 2">轻松解决NFC标签写入难题！<br><br>◦ 个性化音乐墙<br>◦ 多平台支持<br>◦ 小容量标签支持<br>◦ 超省内存，完美适配N213<br>◦ 一触即达，歌曲随心换<br>&nbsp;</p>
+	  
+	  <p style="line-height: 2">本项目永久免费，<br>感谢您对NFC音乐项目的支持！</p>
+	  
+	  <div class="input-container button" style="margin-top: 50px;">
+      <button onclick='location.href=("get.html")' style="background-color: #04BE02;color: #fff;font-weight: 600;letter-spacing: 1px;border: 0px;">立即获取</button>
+		<nobr>&nbsp;&nbsp;&nbsp;&nbsp;</nobr>
+		<a href=""  style="text-decoration: none; color:#FFA500; font-weight: 600; font-size: 18px;"><img src="pic/img/taobao.png" alt="taobao" width="32" style="margin-right: 3px;margin-bottom: -7px;border-radius: 5px;"> 拾一猫来了</a>
+      </div></div>
 	
 <footer>
 	<p><img src="pic/svg/X.svg" alt="SVG Image" width="10" height="10">&nbsp;  By.Alix &nbsp;·&nbsp; 11 Mall Studio &nbsp;|&nbsp; 拾一猫工作室</p>
-</footer>>
+</footer>
 	
 </body>
 </html>
