@@ -30,7 +30,7 @@ body footer{
 @media (min-width:1200px){
 	.container{max-width:1140px}
 }
-.box-size{
+.input-container{
 	margin-right: 21.6px;
 }
 
@@ -46,15 +46,21 @@ p{
 }
 
 input[type="text"] {
-    font-size: 24px; /* 调整输入框字体大小 */
+    font-size: 20px; /* 调整输入框字体大小 */
     padding: 10px; /* 调整输入框内边距 */
     border: 1px solid #ccc; /* 修改输入框边框样式 */
     border-radius: 5px; /* 圆角边框 */
     width: 100%; /* 调整输入框宽度 */
 }
 
+input[type="checkbox"] {
+	transform: scale(1.2);
+	position: absolute;
+	margin: 5px 0px 0px 10px;
+}
+
 button {
-    font-size: 24px; /* 调整按钮字体大小 */
+    font-size: 18px; /* 调整按钮字体大小 */
     padding: 4px 10px; /* 调整按钮内边距 */
     background-color: #f8f8f8; /* 修改按钮背景颜色 */
     border: 1px solid #ccc; /* 修改按钮边框样式 */
@@ -76,6 +82,7 @@ button:active {
 	margin-top: 20px;
 	margin-bottom: 5px;
 }
+
 .label{
 	margin-bottom: 10px;
 	user-select:none;
