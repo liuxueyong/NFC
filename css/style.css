@@ -48,7 +48,7 @@ input[type="text"] {
     padding: 10px; /* 调整输入框内边距 */
     border: 1px solid #ccc; /* 修改输入框边框样式 */
     border-radius: 5px; /* 圆角边框 */
-    width: 95%; /* 调整输入框宽度 */
+    width: 80%; /* 调整输入框宽度 */
 }
 
 button {
