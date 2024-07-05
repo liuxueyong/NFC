@@ -77,7 +77,7 @@ input[type="text"] {
 }
 
 input[type="checkbox"] {
-	transform: scale(1.2);
+	/* transform: scale(1.2); */
 	position: absolute;
 	margin: 5px 0px 0px 10px;
 }
@@ -114,6 +114,7 @@ button:active {
 footer{
 	position: absolute;
 	bottom: 8px;
+	left: 12px;
 	font-size: 12px;
 	color: #dadada;
 }
