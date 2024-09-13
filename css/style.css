@@ -68,6 +68,17 @@ p{
 	user-select:none;
 }
 
+a{
+	color: #008AFF;
+	text-decoration:none;
+}
+a:hover{
+	color: #1EC5FF;
+}
+a:active{
+	color: #007DB5;
+}
+
 input[type="text"] {
     font-size: 20px; /* 调整输入框字体大小 */
     padding: 10px; /* 调整输入框内边距 */
